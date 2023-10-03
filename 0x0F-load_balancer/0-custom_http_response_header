@@ -32,9 +32,4 @@ echo "$new_config" > /etc/nginx/sites-enabled/default
 
 sudo sed -i "/listen 80 default_server;/a add_header X-Served-By \"$HOSTNAME\";" /etc/nginx/sites-available/default
 
-if [ "$(pgrep nginx)" -le 0 ];
-then
-    service nginx start
-else
-    service nginx restart
-fi;
+sudo service nginx restart
